@@ -1,4 +1,4 @@
-package utils_test
+package tests
 
 import (
 	"testing"
@@ -17,6 +17,6 @@ func TestContain(t *testing.T) {
 func TestNotContain(t *testing.T) {
 	arr := []int{1, 2, 3, 4, 5, 6}
 	if _, err := utils.Contain(8, arr); err == nil {
-		t.Error(err)
+		t.Error("包含错误")
 	}
 }
