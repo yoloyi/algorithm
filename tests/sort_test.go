@@ -80,3 +80,20 @@ func TestBucketSort(t *testing.T) {
 		}
 	}
 }
+
+func TestShellSort(t *testing.T) {
+	sorts.ShellSort(arr)
+	for _, v := range arr {
+		if _, err := utils.Contain(v, arr2); err != nil {
+			t.Error(err)
+			break
+		}
+	}
+	len := len(arr)
+	for i := 0; i < len-1; i++ {
+		if arr[i] > arr[i+1] {
+			t.Error("排序错误")
+			break
+		}
+	}
+}

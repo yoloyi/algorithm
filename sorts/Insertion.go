@@ -1,6 +1,8 @@
 package sorts
 
-//InsertionSort 直接插入排序
+import "fmt"
+
+//InsertionSort 简单插入排序
 func InsertionSort(arr []int) {
 	len := len(arr)
 	if len < 2 {
@@ -42,4 +44,23 @@ func BinaryInsertionSort(arr []int) {
 		}
 	}
 	return
+}
+
+// ShellSort 希尔排序
+// 也称递减增量排序算法，是插入排序的一种更高效的改进版本。希尔排序是非稳定排序算法。
+func ShellSort(arr []int) {
+	len := len(arr)
+	step := len / 2
+
+	for step > 0 {
+		for i := 0; i < len-1; i += step {
+			for j := i; j >= 0; j -= step {
+				if arr[j] > arr[j+step] {
+					arr[j], arr[j+step] = arr[j+step], arr[j]
+				}
+			}
+		}
+		step = step / 2
+	}
+	fmt.Println(arr)
 }
