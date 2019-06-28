@@ -9,13 +9,17 @@ func InsertionSort(arr []int) {
 		return
 	}
 	for i := 1; i < len; i++ {
-		for j := i - 1; j >= 0; j-- {
+		key := arr[i]
+		j := i - 1
+		for j >= 0 && arr[j] > key {
 			if arr[j] > arr[j+1] {
 				arr[j], arr[j+1] = arr[j+1], arr[j]
+				j = j - 1
 			} else {
 				break
 			}
 		}
+		arr[j+1] = key
 	}
 	return
 }
